@@ -4,7 +4,8 @@
  */
 // Define the endpoint URL for making requests to the server
 const port = 3000;
-const IP = "localhost";
+// const IP = "localhost";
+const IP = "206.189.183.72";
 const URL = "http://" + IP + ":" + port + '/';
 
 // Function to add a new user to the database

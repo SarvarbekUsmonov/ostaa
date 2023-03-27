@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 
 // Set up the server port and database URL
 const port = process.env.PORT || 3000;
-const dbUrl = process.env.DB_URL || 'mongodb://localhost/ostaa';
+// const dbUrl = process.env.DB_URL || 'mongodb://localhost/ostaa';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1/ostaa';
 
 // Set CORS headers to allow cross-origin requests from any domain
 app.use((req, res, next) => {
