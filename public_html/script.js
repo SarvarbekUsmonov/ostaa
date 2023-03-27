@@ -3,7 +3,7 @@
  * Purpose: Client side script for Ostaa app
  */
 // Define the endpoint URL for making requests to the server
-const port = 3001;
+const port = 3000;
 const IP = "localhost";
 const URL = "http://" + IP + ":" + port + '/';
 

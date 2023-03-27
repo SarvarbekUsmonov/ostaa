@@ -10,7 +10,7 @@ app.use(express.static('public_html'));
 app.use(bodyParser.json());
 
 // Set up the server port and database URL
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const dbUrl = process.env.DB_URL || 'mongodb://localhost/ostaa';
 
 // Set CORS headers to allow cross-origin requests from any domain
