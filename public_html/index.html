@@ -1,0 +1,66 @@
+<!-- 
+    Author: Sarvarbek Usmonov
+    Class: CSC 337
+    File: index.html
+    Purpose: First part of an online-marketplace app called Ostaa
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ostaa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Add User</h1>
+            <form>
+                <label for="UsernameAddUser">Username:</label>
+                <input type="text" id="UsernameAddUser" name="UsernameAddUser" required>
+
+                <label for="PasswordAddUser">Password:</label>
+                <input type="text" id="PasswordAddUser" name="PasswordAddUser" required>
+
+                <input type="submit" value="Add User" onclick="addUser(event)">
+            </form>
+        </div>
+        <div class="form-section">
+            <h1>Add Item</h1>
+            <form>
+                <label for="titleAddItem">Title:</label>
+                <input type="text" id="titleAddItem" name="titleAddItem" required>
+
+                <label for="descAddItem">Desc:</label>
+                <input type="text" id="descAddItem" name="descAddItem" required>
+
+                <label for="imageAddItem">Image:</label>
+                <input type="text" id="imageAddItem" name="imageAddItem" required>
+
+                <label for="priceAddItem">Price:</label>
+                <input type="text" id="priceAddItem" name="priceAddItem" required oninput="onlyNumbers(this)">
+                <script>
+                    function onlyNumbers(input) {
+                        input.value = input.value.replace(/[^0-9]/g, '');
+                    }
+                </script>
+
+                <label for="statusAddItem">Status:</label>
+                <input type="text" id="statusAddItem" name="statusAddItem" required>
+
+                <label for="usernameAddItem">Username:</label>
+                <input type="text" id="usernameAddItem" name="usernameAddItem" required>
+
+                <input type="submit" value="Add Item" onclick="addItem(event)">
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
