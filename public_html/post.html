@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+
+    <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        
+    <script>
+        let URL1 = "http://localhost:3000/";
+        let start = document.cookie.indexOf("=") + 1;
+        let end = document.cookie.length;
+        if (document.cookie.includes("sessionID=null") || document.cookie =='') {
+            window.location.href = URL1;
+        } else {
+            cookieNum = document.cookie.slice(start, end);
+        }
+
+        fetch(URL1 +`checkSession/` + cookieNum)
+        .then(res => {
+            if(res.status == 200){
+                let accessed1 = true;
+                console.log('access');
+            } else{
+                let accessed1 = false;
+                window.location.href = URL1;
+            }
+        })
+    </script>
+
+<div class="form-section">
+    <h1>Add Item</h1>
+    <form>
+        <label for="titleAddItem">Title:</label>
+        <input type="text" id="titleAddItem" name="titleAddItem" required>
+
+        <label for="descAddItem">Desc:</label>
+        <input type="text" id="descAddItem" name="descAddItem" required>
+
+        <label for="imageAddItem">Image:</label>
+        <input type="text" id="imageAddItem" name="imageAddItem" required>
+
+        <label for="priceAddItem">Price:</label>
+        <input type="text" id="priceAddItem" name="priceAddItem" required oninput="onlyNumbers(this)">
+        <script>
+            function onlyNumbers(input) {
+                input.value = input.value.replace(/[^0-9]/g, '');
+            }
+        </script>
+
+        <label for="statusAddItem">Status:</label>
+        <input type="text" id="statusAddItem" name="statusAddItem" required>
+
+        <label for="usernameAddItem">Username:</label>
+        <input type="text" id="usernameAddItem" name="usernameAddItem" required>
+
+        <input type="submit" value="Add Item" onclick="addItem(event)">
+    </form>
+</div>
+</div>
+
+<script src="script.js"></script>
+
+    </body>
+</html>

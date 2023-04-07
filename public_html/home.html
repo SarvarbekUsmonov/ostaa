@@ -1,0 +1,85 @@
+<!-- 
+    Author: Sarvarbek Usmonov
+    Class: CSC 337
+    File: home.html
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Ostaa</title>
+     <link rel="stylesheet" href="styles.css">
+ </head>
+ 
+ <body>
+
+    <script>
+        let URL1 = "http://localhost:3000/";
+        let start = document.cookie.indexOf("=") + 1;
+        let end = document.cookie.length;
+        if (document.cookie.includes("sessionID=null") || document.cookie =='') {
+            window.location.href = URL1;
+        } else {
+            cookieNum = document.cookie.slice(start, end);
+        }
+
+        fetch(URL1 +`checkSession/` + cookieNum)
+        .then(res => {
+            if(res.status == 200){
+                let accessed1 = true;
+                console.log('access');
+            } else{
+                let accessed1 = false;
+                window.location.href = URL1;
+            }
+        })
+    </script>
+    <div style="background-color: lightblue; padding-top: 30px;">
+        <h1 style="margin-bottom: 0;">Ostaa</h1>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div class="container">
+                    <div class="form-section">
+                           
+                            <h1><p id="welcomeTexthere"></p></h1>
+                            <label for="searchItems"></label>
+                            <input type="text" class="searchItems" id="searchItems" name="searchItems">
+
+                            <input type="submit" value="Search Listings" onclick="searchItems(event)">
+                    </div>
+
+                    <div>
+                        <button id="btn-design" onclick="viewYourListings(event)">View Your Listings</button>
+                        <a href="/post.html">View Your Purchases</a>
+                        <a href="/post.html">Create a Listing</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                
+                <span id="secondSide"></span>
+            </td>
+        </tr>
+    </table>
+    
+ 
+     <script src="script.js"></script>
+     <script>
+                                
+        fetch(URL + 'getUserName')
+        .then(response => response.json())
+        .then(data => {
+            console.log('here');
+            document.getElementById("welcomeTexthere").innerHTML = "Welcome " + data.username + "! What would you like to do?"
+        })
+    
+        
+                                </script>
+ </body>
+ 
+ </html>
+ 
